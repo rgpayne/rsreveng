@@ -1,0 +1,134 @@
+# Blender MTL File: 'None'
+# Material Count: 12
+
+newmtl arctic_medium_face
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.500000 0.500000 0.500000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd arctic_medium_face.bmp
+disp arctic_medium_face.bmp
+
+newmtl arctic_medium_helmet
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.500000 0.500000 0.500000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd arctic_medium_helmet.bmp
+disp arctic_medium_helmet.bmp
+
+newmtl arctic_medium_rightarm
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.500000 0.500000 0.500000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd arctic_medium_rightarm.bmp
+disp arctic_medium_rightarm.bmp
+
+newmtl arctic_medium_rightfoot
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.500000 0.500000 0.500000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd arctic_medium_rightfoot.bmp
+disp arctic_medium_rightfoot.bmp
+
+newmtl arctic_medium_rightsole
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.500000 0.500000 0.500000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd arctic_medium_rightsole.bmp
+disp arctic_medium_rightsole.bmp
+
+newmtl art_armpatch
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.500000 0.500000 0.500000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd art_armpatch.bmp
+disp art_armpatch.bmp
+
+newmtl art_h_glass
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.500000 0.500000 0.500000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd art_h_glass.bmp
+disp art_h_glass.bmp
+
+newmtl art_h_leg
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.500000 0.500000 0.500000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd art_h_leg.bmp
+disp art_h_leg.bmp
+
+newmtl art_h_sah
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.500000 0.500000 0.500000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd art_h_sah.bmp
+disp art_h_sah.bmp
+
+newmtl art_h_torso
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.500000 0.500000 0.500000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd art_h_torso.bmp
+disp art_h_torso.bmp
+
+newmtl artic_l_hand
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.500000 0.500000 0.500000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd artic_l_hand.bmp
+disp artic_l_hand.bmp
+
+newmtl hrt_face
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.500000 0.500000 0.500000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd hrt_face.bmp
+disp hrt_face.bmp

@@ -1,0 +1,65 @@
+newmtl art_h_glass
+map_Kd art_h_glass.bmp
+map_Disp art_h_glass.bmp
+map_Ks art_h_glass.bmp
+
+newmtl art_h_torso
+map_Kd art_h_torso.bmp
+map_Disp art_h_torso.bmp
+map_Ks art_h_torso.bmp
+
+newmtl arctic_medium_helmet
+map_Kd arctic_medium_helmet.bmp
+map_Disp arctic_medium_helmet.bmp
+map_Ks arctic_medium_helmet.bmp
+
+newmtl arctic_medium_face
+map_Kd arctic_medium_face.bmp
+map_Disp arctic_medium_face.bmp
+map_Ks arctic_medium_face.bmp
+
+newmtl arctic_medium_rightsole
+map_Kd arctic_medium_rightsole.bmp
+map_Disp arctic_medium_rightsole.bmp
+map_Ks arctic_medium_rightsole.bmp
+
+newmtl arctic_medium_rightarm
+map_Kd arctic_medium_rightarm.bmp
+map_Disp arctic_medium_rightarm.bmp
+map_Ks arctic_medium_rightarm.bmp
+
+newmtl hrt_face
+map_Kd hrt_face.bmp
+map_Disp hrt_face.bmp
+map_Ks hrt_face.bmp
+
+newmtl artic_l_hand
+map_Kd artic_l_hand.bmp
+map_Disp artic_l_hand.bmp
+map_Ks artic_l_hand.bmp
+
+newmtl arctic_medium_rightfoot
+map_Kd arctic_medium_rightfoot.bmp
+map_Disp arctic_medium_rightfoot.bmp
+map_Ks arctic_medium_rightfoot.bmp
+
+newmtl artic_l_hand
+map_Kd artic_l_hand.bmp
+map_Disp artic_l_hand.bmp
+map_Ks artic_l_hand.bmp
+
+newmtl art_h_leg
+map_Kd art_h_leg.bmp
+map_Disp art_h_leg.bmp
+map_Ks art_h_leg.bmp
+
+newmtl art_armpatch
+map_Kd art_armpatch.bmp
+map_Disp art_armpatch.bmp
+map_Ks art_armpatch.bmp
+
+newmtl art_h_sah
+map_Kd art_h_sah.bmp
+map_Disp art_h_sah.bmp
+map_Ks art_h_sah.bmp
+

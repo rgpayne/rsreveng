@@ -1,6 +1,6 @@
 Reverse engineering Rainbow: Six Rogue Spear
 
-Requires Direct3D
+Requires DirectX SDK
 
 This is a casual project that I don't expect to go anywhere. The goal is to reuse all of the original assets, most of which seem to be proprietary formats, and build a similar engine around them.
 

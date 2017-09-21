@@ -37,6 +37,7 @@ public:
 	int				m_nPatches;		// skin patches
 	CSkinPatch*		m_pPatch; //tex coords?
 	CMotion*		m_pMotion;
+	float			rot = 0.0f;
 
 //public:
 	CCharacter();
@@ -67,4 +68,5 @@ public:
 	}
 	void to_OBJ();
 	void bones();
+	void rotate(CMotion* pMotion, float fTime, float yaw);
 };

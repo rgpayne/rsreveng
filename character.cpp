@@ -5,6 +5,8 @@
 #include <cstring>
 #include <fstream>
 #include <sstream>
+#include <iostream>
+
 
 
 bool FindPatternInFile(FILE* f, BYTE* pPattern, int nPatternLength)
@@ -372,6 +374,8 @@ bool CCharacter::Load(char* pSKLfilename, char* pCRPfilename)
 	D3DXMatrixIdentity(&m);
 	D3DXVECTOR3 pos(0,0,0);
 
+	
+
 	m_pRootSeg->TransformRec(m_pVertex,m_pTransformedVertex,m,pos);
 	to_OBJ();
 	bones();
@@ -382,7 +386,7 @@ bool CCharacter::Load(char* pSKLfilename, char* pCRPfilename)
 
 bool CCharacter::SetMotion(CMotion* pMotion, float fTime)
 {
-	if(!pMotion) return false;
+	if(!pMotion) return false; 
 	if(pMotion->m_nFrames==0) return false;
 	int nFrame = (int) fTime;
 	if(nFrame < 0) nFrame = 0;
@@ -395,7 +399,9 @@ bool CCharacter::SetMotion(CMotion* pMotion, float fTime)
 		);
 	}
 	D3DXMATRIX m;
-	D3DXMatrixIdentity(&m);
+//	D3DXMatrixIdentity(&m);
+	D3DXMatrixRotationYawPitchRoll(&m, rot, 0, 0);
+
 	m_pRootSeg->TransformRec(
 		m_pVertex, m_pTransformedVertex,
 		m, pMotion->m_pFrame[nFrame].m_vOffset
@@ -556,5 +562,16 @@ void CCharacter::bones() {
 	file << v.str();
 	file << f.str();
 	file.close();
+}
+void CCharacter::rotate(CMotion* pMotion, float fTime, float yaw) {
+	rot = rot + yaw;
+	D3DXMATRIX m;
+	D3DXMatrixIdentity(&m);
+	D3DXMatrixRotationYawPitchRoll(&m, rot, 0, 0);
+	int nFrame = (int)fTime;
+	m_pRootSeg->TransformRec(
+		m_pVertex, m_pTransformedVertex,
+		m, pMotion->m_pFrame[nFrame].m_vOffset
+	);
 }
 

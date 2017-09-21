@@ -25,6 +25,11 @@ public:
 		m_nFrames=0;
 		m_pFrame=NULL;
 	}
+	CMotion(char* pFileNam)
+	{
+		Load(pFileNam);
+
+	}
 	~CMotion()
 	{
 		if(m_pFrame) delete[] m_pFrame;

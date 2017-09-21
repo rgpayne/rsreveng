@@ -3,6 +3,8 @@
 
 bool CMotion::Load(char* pFileName)
 {
+	OutputDebugString(pFileName);
+	OutputDebugString("\n");
 	FILE* f=NULL;
 	fopen_s(&f,pFileName,"rb");
 	if(!f) 

@@ -8,6 +8,10 @@
 
 #define STRICT
 #define WIN32_LEAN_AND_MEAN
+#define VK_A 0x41
+#define VK_D 0x44
+#define VK_W 0x57
+#define VK_S 0x53
 
 #include <windows.h>
 #include <mmsystem.h>
@@ -37,6 +41,21 @@ LPDIRECT3DVERTEXBUFFER9 g_pVertexBuffer = NULL;
 float g_fSpinX = 0.0f;
 float g_fSpinY = 0.0f;
 
+std::map <char*, CMotion*> charAnim;
+std::map <char*, CMotion*>::iterator charAnimIt;
+
+
+int animPathsSize = 1;
+char* animPaths[] =
+{
+	"motion\\tmu_wk1.DAM"
+//	,"motion/tmu_wk2"
+//	,"motion\2hand_reach_in.DAM"
+
+};
+
+
+
 //-----------------------------------------------------------------------------
 // PROTOYPES
 //-----------------------------------------------------------------------------
@@ -50,6 +69,7 @@ void		renderPatches(void);
 void		NextAnim();
 float		getRandomMinMax(float fMin, float fMax);
 void		to_OBJ();
+void		loadAnimations();
 D3DXVECTOR3	getRandomVector(void);
 
 CCharacter			chr;
@@ -108,7 +128,7 @@ int WINAPI WinMain(	HINSTANCE hInstance,
 	
 	chr.Load("test.skl","test.crp");	
 
-
+	loadAnimations();
 	NextAnim();
 	
 	while( uMsg.message != WM_QUIT )
@@ -161,6 +181,24 @@ LRESULT CALLBACK WindowProc( HWND   hWnd,
 					break;
 				case VK_RETURN:
 					NextAnim();
+					break;
+				case VK_A:
+					chr.rotate(g_pMotion, g_fTime, -0.1f);
+					break;
+				case VK_D:
+					chr.rotate(g_pMotion, g_fTime, 0.1f);
+					break;
+				case VK_W:
+					char* anim = animPaths[0];
+					charAnimIt = charAnim.find(anim);
+					if (charAnimIt == charAnim.end()) {
+						OutputDebugString("tmu_wk1 not found.\n");
+						break;
+					}
+					else {
+						CMotion* m = charAnim.find(anim)->second;
+							chr.SetMotion(m, g_fTime);
+					}
 					break;
 
 			}
@@ -755,5 +793,21 @@ void to_OBJ() {
 
 	mtl.close();
 
+
+}
+
+void loadAnimations(void) {
+	for (int i = 0; i < animPathsSize; i++) {
+		CMotion* motion;
+		OutputDebugString(animPaths[i]);
+		OutputDebugString("\n");
+		if (animPaths[i] == nullptr) {
+			continue;
+		}
+		else {
+			motion = new CMotion(animPaths[i]);
+			charAnim.insert(std::pair<char*, CMotion*>(animPaths[i], motion));
+		}
+	}
 
 }

@@ -388,6 +388,7 @@ bool CCharacter::SetMotion(CMotion* pMotion, float fTime)
 {
 	if(!pMotion) return false; 
 	if(pMotion->m_nFrames==0) return false;
+	m_pMotion = pMotion;
 	int nFrame = (int) fTime;
 	if(nFrame < 0) nFrame = 0;
 	if(nFrame >= pMotion->m_nFrames-1) nFrame = pMotion->m_nFrames-1;
@@ -538,7 +539,6 @@ void CCharacter::to_OBJ() {
 			<< "map_Ks " << i_n << ".bmp" << std::endl << std::endl;
 	}
 
-
 	mtl.close();
 
 
@@ -574,4 +574,6 @@ void CCharacter::rotate(CMotion* pMotion, float fTime, float yaw) {
 		m, pMotion->m_pFrame[nFrame].m_vOffset
 	);
 }
-
+bool CCharacter::compareAnimation(CMotion* pMotion) {
+	return m_pMotion == pMotion;
+}

@@ -73,9 +73,9 @@ void		loadAnimations();
 D3DXVECTOR3	getRandomVector(void);
 
 CCharacter			chr;
-CMotion*			g_pMotion = NULL;
+//CMotion*			g_pMotion = NULL;
 CTextureCatalog*	g_pTextureCatalog;
-float				g_fTime	  = 0.0f;
+//float				g_fTime	  = 0.0f;
 
 
 // Helper function to stuff a FLOAT into a DWORD argument
@@ -166,29 +166,33 @@ LRESULT CALLBACK WindowProc( HWND   hWnd,
 	
     switch( msg )
 	{
+
         case WM_KEYDOWN:
 		{
 			switch( wParam )
 			{
 				case VK_ESCAPE:
 					g_fSpinX = g_fSpinY = 0.0f;
-					g_fTime = 0.0f;
+					chr.g_fTime = 0.0f;
 					break;
 				case VK_SPACE:
-					g_fTime+=1.0f;
-					if(g_fTime>(float)(g_pMotion->GetFrames()-1)) g_fTime=0.0f;
-					chr.SetMotion(g_pMotion,g_fTime);
+					chr.g_fTime+=1.0f;
+					if(chr.g_fTime>(float)(chr.m_pMotion->GetFrames()-1)) chr.g_fTime=0.0f;
+					chr.SetMotion(chr.m_pMotion,chr.g_fTime);
 					break;
 				case VK_RETURN:
 					NextAnim();
 					break;
 				case VK_A:
-					chr.rotate(g_pMotion, g_fTime, -0.1f);
+					chr.rotate(chr.m_pMotion, chr.g_fTime, -0.1f);
 					break;
 				case VK_D:
-					chr.rotate(g_pMotion, g_fTime, 0.1f);
+					chr.rotate(chr.m_pMotion, chr.g_fTime, 0.1f);
 					break;
 				case VK_W:
+					chr.state = CCharacter::STATE::RF;
+					chr.g_fTime += 1.0f;
+					if (chr.g_fTime>(float)(chr.m_pMotion->GetFrames() - 1)) chr.g_fTime = 0.0f;
 					char* anim = animPaths[0];
 					charAnimIt = charAnim.find(anim);
 					if (charAnimIt == charAnim.end()) {
@@ -197,7 +201,15 @@ LRESULT CALLBACK WindowProc( HWND   hWnd,
 					}
 					else {
 						CMotion* m = charAnim.find(anim)->second;
-							chr.SetMotion(m, g_fTime);
+						
+						if (chr.compareAnimation(m)) {
+							OutputDebugString("x");
+							chr.SetMotion(chr.m_pMotion, chr.g_fTime);
+						}
+						//swap animation
+						else {
+							chr.SetMotion(m, chr.g_fTime);
+						}
 					}
 					break;
 
@@ -328,8 +340,8 @@ void shutDown( void )
     if( g_pD3D != NULL )
         g_pD3D->Release();
 
-	if( g_pMotion ) 
-		delete g_pMotion;
+	if(chr.m_pMotion)
+		delete chr.m_pMotion;
 
 }
 
@@ -652,15 +664,17 @@ void NextAnim()
 	if(pFileName)
 	{
 		sprintf_s(pAnimFileName,256,"motion\\%s",pFileName);
-		if(g_pMotion) 
+		/*
+		if(chr.m_pMotion)
 		{
-			delete g_pMotion;
-			g_pMotion = NULL;
+			delete chr.m_pMotion;
+			chr.m_pMotion = NULL;
 		}
-		g_pMotion = new CMotion();
-		g_pMotion->Load(pAnimFileName);
-		g_fTime = 0.0f;
-		chr.SetMotion(g_pMotion,g_fTime);
+		*/
+		chr.m_pMotion = new CMotion();
+		chr.m_pMotion->Load(pAnimFileName);
+		chr.g_fTime = 0.0f;
+		chr.SetMotion(chr.m_pMotion,chr.g_fTime);
 	}
 }
 

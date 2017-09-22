@@ -19,9 +19,33 @@ struct Vertex
 		FVF_Flags = D3DFVF_XYZ | D3DFVF_TEX2//D3DFVF_DIFFUSE
 	};
 };
+
 class CCharacter
 {
 public:
+	enum STATE
+	{
+		  S		 //Standing
+		, RF	 //Running Forward
+		, RB	 //Running backwards (backpedalling)
+		, RSL	 //Running strafing left
+		, RSR    //Running strafing right
+		, C      //Crouching
+		, CSL    //Crouch strafing left
+		, CSR    //Crouch strafing right
+		, CRF    //Crouch running forward
+		, CRB    //Crouch running backward
+		, SPL    //Standing left peak
+		, SPR    //Standing right peak
+		, CPL    //Crouch peaking left
+		, CPR    //Crouch peaking right
+		, STG    //Standing throwing grenade
+		, CTG    //Crouched throwing grenade
+		, SPRTG  //Standing Peaking right throwing grenade
+		, SPLTG  //Standing Peaking left throwing grenade
+		, CPLTG	 //Crouching peaking left throwing grenade
+		, CPRTG  //Crouching peaking right throwing grenade
+	};
 	CSklSeg*		m_pRootSeg;		// skeleton root node
 	CSklSeg*		ord[18];		/* all skeleton segments ordered (as in SKL): 
 										"Hips","Chest","Neck","Head",
@@ -38,6 +62,10 @@ public:
 	CSkinPatch*		m_pPatch; //tex coords?
 	CMotion*		m_pMotion;
 	float			rot = 0.0f;
+	STATE			state = S;
+	float			g_fTime = 0.0f;
+	
+
 
 //public:
 	CCharacter();
@@ -69,4 +97,5 @@ public:
 	void to_OBJ();
 	void bones();
 	void rotate(CMotion* pMotion, float fTime, float yaw);
+	bool compareAnimation(CMotion* pMotion);
 };
